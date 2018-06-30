@@ -14,3 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+console.log("HELMALJ");
+var heatmap = require("heatmap");

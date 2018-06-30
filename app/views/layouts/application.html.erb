@@ -4,12 +4,16 @@
     <title>ImmigrationHeatmap</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- <script src="../../../node_modules/heatmap.js/plugins/gmaps-heatmap/gmaps-heatmap.js"></script>
+    <script src="../../../node_modules/heatmap.js/build/heatmap.js"></script> -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+      <%= yield %>
+
+
   </body>
 </html>
