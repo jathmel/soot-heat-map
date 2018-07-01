@@ -19,8 +19,8 @@ class MessagesController < ApplicationController
       elsif options.first == 'new'
         puts 'NEW SUBSCRIBER'
         welcome_reply
-     elsif options.first == 'help'
-       pust 'HELP'
+      elsif options.first == 'help'
+        pust 'HELP'
       end
     else
       puts 'error'
