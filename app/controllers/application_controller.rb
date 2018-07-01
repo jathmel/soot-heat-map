@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    # @locations = Location.all
     render :layout => 'application'
   end
 end
