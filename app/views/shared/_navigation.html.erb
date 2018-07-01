@@ -15,10 +15,20 @@
   .navbar-brand {
     font-size: 24px;
     color: red;
-    padding-right: 50px;
+    margin-right: 100px;
+
 
 
   }
+  a {
+    padding-left: 20px;
+
+
+  }
+  ul {
+    float: right;
+  }
+
 
 
 
@@ -29,13 +39,14 @@
       <a class="navbar-brand" href="/webpages">ICE Heat Map</a>
 
       <ul class="navbar-brand ml-auto" >
-        <a class='navbar-right'><%= link_to 'Legal Resources', legals_path %></a>
-        <a class='navbar-right'><%= link_to 'About', abouts_path %></a>
-        <a class='navbar-right'><%= link_to 'Español', abouts_path %></a>
-        <a class='navbar-right'><%= link_to 'Pусский', abouts_path %></a>
-        <a class='navbar-right'><%= link_to 'Kreyòl', abouts_path %></a>
-        <a class='navbar-right'><%= link_to 'عربى', abouts_path %></a>
-        <a class='navbar-right'><%= link_to '中文', abouts_path %></a>
+        <a ><%= link_to 'Legal Resources', legals_path %></a>
+        <a ><%= link_to 'Español', abouts_path %></a>
+        <a ><%= link_to 'Pусский', abouts_path %></a>
+        <a ><%= link_to 'Kreyòl', abouts_path %></a>
+        <a ><%= link_to 'عربى', abouts_path %></a>
+        <a ><%= link_to '中文', abouts_path %></a>
+        <a ><%= link_to '한국어', abouts_path %></a>
+        <a ><%= link_to 'About', abouts_path %></a>
 
       </ul>
 
