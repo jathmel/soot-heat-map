@@ -1,12 +1,6 @@
 {
   "name": "immigration_heatmap",
   "private": true,
-  "dependencies": {
-    "heatmap": "0.0.5",
-    "browserify": "^14.0.0",
-    "browserify-incremental": "^3.1.0",
-    "engines": {
-      "node": ">= 0.10"
-    }
+  "dependencies": {}
   }
 }

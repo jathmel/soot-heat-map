@@ -15,7 +15,6 @@ module ImmigrationHeatmap
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.browserify_rails.commandline_options = '-t coffeeify --extension=".js.coffee"'`
 
   end
 end
