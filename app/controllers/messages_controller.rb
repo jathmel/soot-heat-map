@@ -1,13 +1,54 @@
 class MessagesController < ApplicationController
   def reply
     message_body = params["Body"]
-    from_number = params["From"]
+    puts message_body
+    boot_twilio
+
+    if message_body.split(' ').length == 1
+      if message_body.downcase.split(' ').first == 'raid'
+        # gsub(/\s+/, '')
+        puts 'RAID!'
+        raid_reply
+      elsif message_body.downcase.split(' ').first == 'new'
+        puts 'NEW SUBSCRIBER'
+        welcome_reply
+      end
+    else
+      puts 'error'
+      puts message_body.downcase.split(' ').first
+    end
+
+  end
+
+  def welcome_reply
+    message_body = params["Body"]
+    sender_number = params["From"]
+    our_number = params["To"]
+    
     boot_twilio
     sms = @client.messages.create(
-      from: Rails.application.secrets.twilio_number,
-      to: from_number,
-      body: "Hello there, thanks for texting me. Your number is #{from_number}."
+      from: our_number,
+      to: sender_number,
+      body: "Hello there! Your number is #{sender_number}. And your area is _________... We will alert you with news happening in your area."
     )
+  end
+
+  def raid_reply
+    # can have a list of clients from a query to the db and do a loop to iterate through them to mass send sms
+    message_body = params["Body"]
+    sender_number = params["From"]
+    our_number = params["To"]
+
+    boot_twilio
+    sms = @client.messages.create(
+      from: our_number,
+      to: sender_number,
+      body: "There's a potential raid in your area--please contact your region's ambassador for further guidance."
+    )
+  end
+
+  def show
+
   end
 
   private
