@@ -1,0 +1,43 @@
+<style>
+@font-face{
+  font-family: 'AftaSerifThin-Regular';
+  src: "fonts/AftaSerifThin-Regular.otf"
+}
+  .navbar-default {
+    /* background-image: url(https://media.giphy.com/media/bvtimTexOMSDS/giphy.gif); */
+
+    margin: 0 auto;
+    text-align: right;
+    font-family: 'AftaSerifThin-Regular';
+    padding-left: 10px;
+    background-color: rgba(55, 37, 35, 0.1);
+  }
+  .navbar-brand {
+    font-size: 24px;
+    color: red;
+    padding-right: 50px;
+
+
+  }
+
+
+
+</style>
+<nav class="navbar navbar-default" role="navigation">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/webpages">ICE Heat Map</a>
+
+      <ul class="navbar-brand ml-auto" >
+        <a class='navbar-right'><%= link_to 'Legal Resources', legals_path %></a>
+        <a class='navbar-right'><%= link_to 'About', abouts_path %></a>
+        <a class='navbar-right'><%= link_to 'Español', abouts_path %></a>
+        <a class='navbar-right'><%= link_to 'Pусский', abouts_path %></a>
+        <a class='navbar-right'><%= link_to 'Kreyòl', abouts_path %></a>
+        <a class='navbar-right'><%= link_to 'عربى', abouts_path %></a>
+        <a class='navbar-right'><%= link_to '中文', abouts_path %></a>
+
+      </ul>
+
+  </div>
+</nav>
