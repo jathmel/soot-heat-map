@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Twilio &amp; Rails 4</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
-
-</body>
   <head>
     <meta charset="utf-8">
     <title>Heatmaps</title>
     <style>
+      @font-face{
+        font-family: 'AftaSerifThin-Regular';
+        src: "fonts/AftaSerifThin-Regular.otf"
+      }
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 700px;
-        width: 100%;
+        /* width: 700px; */
         margin: 0 auto;
+        padding-top: 200px;
+        /* border-style: solid;
+        border-color: red; */
+        background-color: #222E50;
+        height: 100%;
+
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -28,28 +27,51 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        background-color: #222E50;
       }
       #floating-panel {
-        position: absolute;
+        /* position: absolute; */
         top: 10px;
         left: 25%;
         z-index: 5;
-        background-color: #fff;
+        background-color: #222E50;
         padding: 5px;
         border: 1px solid #999;
         text-align: center;
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
+        /* border-style: solid;
+        border-color: blue; */
+        text-align: center;
+      }
+      .title {
+        color: white;
+        font-size: 24px;
+        font-family:' AftaSerifThin-Regular'
+
+
       }
       #floating-panel {
         background-color: #fff;
         border: 1px solid #999;
         left: 25%;
         padding: 5px;
-        position: absolute;
+        /* position: absolute; */
         top: 10px;
         z-index: 5;
+        /* border-style: solid;
+        border-color: green; */
+        background-color: #222E50;
+
+
+
+      }
+      #master-map {
+        /* border-style: solid;
+        border-color: blue; */
+        background-color: #222E50;
+        height: 100%;
       }
       #zips{
         position: absolute;
@@ -60,15 +82,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </head>
+  <nav>
+    <%= render 'shared/navigation' %>
+
+  </nav>
 
   <body>
+    <div id="master-map">
     <div id="floating-panel">
-      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-      <button onclick="changeGradient()">Change gradient</button>
-      <button onclick="changeRadius()">Change radius</button>
-      <button onclick="changeOpacity()">Change opacity</button>
+      <h2 class="title">Find out if ICE is in your area</h2>
+      <button onclick="toggleHeatmap()">Turn Heatmap On/Off</button>
+      <!-- <button onclick="changeGradient()">Change gradient</button> -->
+      <!-- <button onclick="changeRadius()">Change radius</button>
+      <button onclick="changeOpacity()">Change opacity</button> -->
     </div>
     <div id="map"></div>
+  </div>
     <script>
 
       // This example requires the Visualization library. Include the libraries=visualization
@@ -83,7 +112,7 @@
       function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
             zoom: 4,
-            center: {lat: 39, lng: -98},
+            center: {lat: 39.496836, lng: -98.801544},
             styles: [
               {
                 "elementType": "labels.icon",
@@ -95,7 +124,7 @@
               },
             {elementType: 'geometry', stylers: [{color: '#3e6385'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#e5d0ae'}]},
             {
               featureType: 'administrative.locality',
               elementType: 'labels.text.fill',
@@ -134,7 +163,7 @@
             {
               featureType: 'road.highway',
               elementType: 'geometry',
-              stylers: [{color: '#746855'}]
+              stylers: [{color: '#e5d0ae'}]
             },
             {
               featureType: 'road.highway',
@@ -159,7 +188,7 @@
             {
               featureType: 'water',
               elementType: 'geometry',
-              stylers: [{color: '#ffffff'}]
+              stylers: [{color: '#dce4ef'}]
             },
             {
               featureType: 'water',
@@ -262,6 +291,7 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrm363sRfhm7tn_o7QnV_LeUTLs2LXMMY&libraries=visualization&callback=initMap">
     </script>
+
     <%= yield %>
   </body>
 </html>

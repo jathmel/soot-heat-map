@@ -15,7 +15,10 @@ class MessagesController < ApplicationController
         raid_reply
         zip = options[1]
         Location.find_or_create_by(zip: zip.to_i)
+<<<<<<< HEAD
         byebug
+=======
+>>>>>>> malorie
       elsif options.first == 'new'
         puts 'NEW SUBSCRIBER'
         welcome_reply
