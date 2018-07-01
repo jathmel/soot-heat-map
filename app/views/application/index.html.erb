@@ -1,2 +1,7 @@
 Hello Peru!
+<h1><%= @zip %></h1>
 <p>HIIIII!</p>
+
+<%@locations.each do |location| %>
+<h3 id="zips"><% location.zip %></h3>
+<% end %>

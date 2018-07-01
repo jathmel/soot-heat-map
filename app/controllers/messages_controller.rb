@@ -1,17 +1,24 @@
 class MessagesController < ApplicationController
   def reply
+    # byebug
+    # = params[body]
     message_body = params["Body"]
     puts message_body
     boot_twilio
 
-    if message_body.split(' ').length == 1
+
+    if message_body.split(' ').length >= 1
       if message_body.downcase.split(' ').first == 'raid'
         # gsub(/\s+/, '')
         puts 'RAID!'
         raid_reply
+        zip = message_body.split(' ')[1]
+        Location.find_or_create_by(zip: zip.to_i)
+        byebug
       elsif message_body.downcase.split(' ').first == 'new'
         puts 'NEW SUBSCRIBER'
         welcome_reply
+      # elsif message_body.
       end
     else
       puts 'error'
@@ -24,7 +31,7 @@ class MessagesController < ApplicationController
     message_body = params["Body"]
     sender_number = params["From"]
     our_number = params["To"]
-    
+
     boot_twilio
     sms = @client.messages.create(
       from: our_number,
@@ -54,8 +61,10 @@ class MessagesController < ApplicationController
   private
 
   def boot_twilio
-    account_sid = Rails.application.secrets.twilio_sid
-    auth_token = Rails.application.secrets.twilio_token
+    account_sid = 'AC1812bc86fdf2a2b09fa1da9551bc0307'
+    auth_token = 'd957a2617b2a29e12ee126e142f4df62'
+    # account_sid = Rails.application.secrets.twilio_sid
+    # auth_token = Rails.application.secrets.twilio_token
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 end
