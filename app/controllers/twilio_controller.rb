@@ -10,7 +10,7 @@ class TwilioController < ApplicationController
 
   def voice
     response = Twilio::TwiML::VoiceResponse.new do |r|
-    r.say('finally fucking yes hell yes!!!!', voice: 'alice')
+    r.say('Welcome to the ICE alert system.', voice: 'alice')
   end
   render_twiml(response)
 end

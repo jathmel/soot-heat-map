@@ -5,24 +5,26 @@ class MessagesController < ApplicationController
     message_body = params["Body"]
     puts message_body
     boot_twilio
+    options = message_body.downcase.split(' ')
 
 
     if message_body.split(' ').length >= 1
-      if message_body.downcase.split(' ').first == 'raid'
+      if options.first == 'raid'
         # gsub(/\s+/, '')
         puts 'RAID!'
         raid_reply
-        zip = message_body.split(' ')[1]
+        zip = options[1]
         Location.find_or_create_by(zip: zip.to_i)
         byebug
-      elsif message_body.downcase.split(' ').first == 'new'
+      elsif options.first == 'new'
         puts 'NEW SUBSCRIBER'
         welcome_reply
-      # elsif message_body.
+     elsif options.first == 'help'
+       pust 'HELP'
       end
     else
       puts 'error'
-      puts message_body.downcase.split(' ').first
+      puts options.first
     end
 
   end
