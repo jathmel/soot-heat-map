@@ -25,3 +25,5 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# google maps api key: AIzaSyBw7W6l6VPGDH-9HTMIekWiqZg2xFXD3uw
